@@ -1,22 +1,41 @@
+# Next.js + TypeScript + Tailwind Starter
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+This starter includes some settings I use with all my Next.js projects, including:
+
+- TypeScript (**with strict mode enabled**)
+- Tailwind CSS with PostCSS and Autoprefixer
+- ESLint with my usual set of rules preconfigured, exteding `eslint:recommended`, `plugin:react/recommended` and `plugin:@typescript-eslint/recommended` (only in TypeScript files).
+- Stylelint with the standard configuration (`stylelint-config-standard`) and some custom rules to lint Tailwind CSS directives
+- Environment variables for some settings in `next.config.js`
+- Project files stored in `src/` instead of the root folder
+- `.vscode/settings.json` for disabling VS Code built-in CSS validator and using the TypeScript SDK from `node_modules`
+
+## ESLint rules enabled
+
+- Indentation (`indent`): 2 spaces
+- Semicolons (`semi`)
+- Trailing new line (`eol-last`)
+- Require === and !== (`eqeqeq`)
+- `react/jsx-uses-react` and `react/react-in-jsx-scope`: `off` (because of the new JSX parser)
+- `react/prop-types` and `no-unused-vars`: `off` (only in TypeScript files)
 
 ## Getting Started
 
 First, run the development server:
 
 ```bash
-npm run dev
-# or
 yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+You can start editing the page by modifying `src/pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `src/pages/api/hello.js`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+The `src/pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
 ## Learn More
 

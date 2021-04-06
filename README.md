@@ -1,12 +1,12 @@
 # Next.js + TypeScript + Tailwind Starter
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) and [this starter](https://github.com/dalbitresb12/next-typescript-tailwind-starter).
 
 This starter includes some settings I use with all my Next.js projects, including:
 
 - TypeScript (**with strict mode enabled**)
 - Tailwind CSS with PostCSS and Autoprefixer
-- ESLint with my usual set of rules preconfigured, exteding `eslint:recommended`, `plugin:react/recommended` and `plugin:@typescript-eslint/recommended` (only in TypeScript files).
+- ESLint with my usual set of rules preconfigured, extending `eslint:recommended`, `plugin:react/recommended` and `plugin:@typescript-eslint/recommended` (only in TypeScript files).
 - Stylelint with the standard configuration (`stylelint-config-standard`) and some custom rules to lint Tailwind CSS directives
 - Environment variables for some settings in `next.config.js`
 - Project files stored in `src/` instead of the root folder
@@ -23,7 +23,13 @@ This starter includes some settings I use with all my Next.js projects, includin
 
 ## Getting Started
 
-First, run the development server:
+First, create a new project with `create-next-app` using this starter:
+
+```bash
+yarn create next-app -e https://github.com/dalbitresb12/next-typescript-tailwind-starter
+```
+
+Then, run the development server:
 
 ```bash
 yarn dev

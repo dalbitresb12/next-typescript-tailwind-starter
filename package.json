@@ -7,14 +7,16 @@
     "dev": "next dev",
     "build": "NODE_ENV=production next build",
     "start": "NODE_ENV=production next start",
-    "lint": "yarn run -s lint:code && yarn run -s lint:css",
-    "lint:code": "eslint --ext .js,.ts,.tsx . && tsc --noemit",
+    "lint": "concurrently -s --kill-others-on-fail yarn:lint:*",
+    "lint:eslint": "eslint --ext .js,.ts,.tsx .",
+    "lint:ts": "tsc --noemit",
     "lint:css": "stylelint **/*.css",
     "analyze": "NODE_ENV=production ANALYZE=true next build"
   },
   "dependencies": {
     "@next/bundle-analyzer": "^10.2.3",
     "autoprefixer": "^10.3.1",
+    "concurrently": "^6.2.1",
     "next": "11.1.0",
     "postcss": "^8.3.6",
     "react": "17.0.2",

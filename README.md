@@ -6,7 +6,7 @@ This starter includes some settings I use with all my Next.js projects, includin
 
 - TypeScript (**with strict mode enabled**)
 - Tailwind CSS with PostCSS and Autoprefixer
-- ESLint with my usual set of rules preconfigured, extending `eslint:recommended`, `plugin:react/recommended` and `plugin:@typescript-eslint/recommended` (only in TypeScript files).
+- ESLint with my usual set of rules preconfigured, extending `eslint:recommended`, `plugin:react/recommended`, `plugin:@next/next/core-web-vitals` and `plugin:@typescript-eslint/recommended` (only in TypeScript files).
 - Stylelint with the standard configuration (`stylelint-config-standard`) and some custom rules to lint Tailwind CSS directives
 - Environment variables for some settings in `next.config.js`
 - Project files stored in `src/` instead of the root folder

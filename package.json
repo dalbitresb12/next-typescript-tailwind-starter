@@ -10,9 +10,7 @@
     "lint": "yarn run -s lint:code && yarn run -s lint:css",
     "lint:code": "eslint --ext .js,.ts,.tsx . && tsc --noemit",
     "lint:css": "stylelint **/*.css",
-    "analyze": "NODE_ENV=production ANALYZE=true next build",
-    "analyze:server": "NODE_ENV=production BUNDLE_ANALYZE=server next build",
-    "analyze:browser": "NODE_ENV=production BUNDLE_ANALYZE=server next build"
+    "analyze": "NODE_ENV=production ANALYZE=true next build"
   },
   "dependencies": {
     "@next/bundle-analyzer": "^10.2.3",

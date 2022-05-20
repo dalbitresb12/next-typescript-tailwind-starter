@@ -8,13 +8,14 @@
     "build": "next build",
     "start": "next start",
     "analyze": "ANALYZE=true next build",
+    "postinstall": "husky install",
     "lint": "concurrently -s -n lint: 'yarn:lint:*(!fix)'",
     "lint:ts": "tsc --noemit",
-    "lint:eslint": "eslint --cache --ext .js,.ts,.tsx .",
+    "lint:eslint": "eslint --cache --ext .js,.jsx,.ts,.tsx .",
     "lint:css": "stylelint --cache **/*.css",
     "lint:prettier": "prettier --check .",
     "lint:fix": "concurrently -s -n lint:fix: 'yarn:lint:fix:*'",
-    "lint:fix:eslint": "eslint --cache --ext .js,.ts,.tsx --fix .",
+    "lint:fix:eslint": "eslint --cache --ext .js,.jsx,.ts,.tsx --fix .",
     "lint:fix:css": "stylelint --cache --fix **/*.css",
     "lint:fix:prettier": "prettier --write ."
   },
@@ -39,11 +40,18 @@
     "eslint-config-next": "12.1.6",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-react": "^7.30.0",
+    "husky": ">=6",
+    "lint-staged": ">=10",
     "prettier": "^2.6.2",
     "stylelint": "^14.8.2",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-standard": "^25.0.0",
     "typescript": "^4.6.4"
   },
-  "packageManager": "yarn@3.2.1"
+  "packageManager": "yarn@3.2.1",
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "eslint --cache --fix",
+    "*.css": "stylelint --cache --fix",
+    "*.{js,jsx,ts,tsx,css,md,yml,json}": "prettier --write"
+  }
 }

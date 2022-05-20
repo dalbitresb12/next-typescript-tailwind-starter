@@ -321,6 +321,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/prettier@npm:^2":
+  version: 2.6.1
+  resolution: "@types/prettier@npm:2.6.1"
+  checksum: b25ec46d18129fa40c1a1f42feb7406e8f19901ba5261ba3c71600ad14996ae07b4f4b727a9b83da673948011e59d870fc519166f05b5d49e9ad39db1aea8c93
+  languageName: node
+  linkType: hard
+
 "@types/prop-types@npm:*":
   version: 15.7.4
   resolution: "@types/prop-types@npm:15.7.4"
@@ -1521,6 +1528,17 @@ __metadata:
     typescript:
       optional: true
   checksum: b3ba9e8f598b4018002aaaa64dc0e8a8b5994be992839a8b1b0a7f7ab0e4cbe006a30fd787524baab7c1e979dc6b41d4cdcbe239be181635413d987be7f25b6f
+  languageName: node
+  linkType: hard
+
+"eslint-config-prettier@npm:^8.5.0":
+  version: 8.5.0
+  resolution: "eslint-config-prettier@npm:8.5.0"
+  peerDependencies:
+    eslint: ">=7.0.0"
+  bin:
+    eslint-config-prettier: bin/cli.js
+  checksum: 0d0f5c32e7a0ad91249467ce71ca92394ccd343178277d318baf32063b79ea90216f4c81d1065d60f96366fdc60f151d4d68ae7811a58bd37228b84c2083f893
   languageName: node
   linkType: hard
 
@@ -3229,6 +3247,7 @@ __metadata:
     "@next/bundle-analyzer": 12.1.6
     "@next/eslint-plugin-next": 12.1.6
     "@types/node": ^16.11.36
+    "@types/prettier": ^2
     "@types/react": ^18.0.9
     "@typescript-eslint/eslint-plugin": ^5.25.0
     "@typescript-eslint/parser": ^5.25.0
@@ -3236,12 +3255,15 @@ __metadata:
     concurrently: ^7.2.0
     eslint: ^8.15.0
     eslint-config-next: 12.1.6
+    eslint-config-prettier: ^8.5.0
     eslint-plugin-react: ^7.30.0
     next: 12.1.6
     postcss: ^8.4.14
+    prettier: ^2.6.2
     react: 18.1.0
     react-dom: 18.1.0
     stylelint: ^14.8.2
+    stylelint-config-prettier: ^9.0.3
     stylelint-config-standard: ^25.0.0
     tailwindcss: ^2.2.19
     typescript: ^4.6.4
@@ -3808,6 +3830,15 @@ __metadata:
   version: 1.2.1
   resolution: "prelude-ls@npm:1.2.1"
   checksum: cd192ec0d0a8e4c6da3bb80e4f62afe336df3f76271ac6deb0e6a36187133b6073a19e9727a1ff108cd8b9982e4768850d413baa71214dd80c7979617dca827a
+  languageName: node
+  linkType: hard
+
+"prettier@npm:^2.6.2":
+  version: 2.6.2
+  resolution: "prettier@npm:2.6.2"
+  bin:
+    prettier: bin-prettier.js
+  checksum: 48d08dde8e9fb1f5bccdd205baa7f192e9fc8bc98f86e1b97d919de804e28c806b0e6cc685e4a88211aa7987fa9668f30baae19580d87ced3ed0f2ec6572106f
   languageName: node
   linkType: hard
 
@@ -4533,6 +4564,18 @@ __metadata:
     babel-plugin-macros:
       optional: true
   checksum: 86d55819ebeabd283a574d2f44f7d3f8fa6b8c28fa41687ece161bf1e910e04965611618921d8f5cd33dc6dae1033b926a70421ae5ea045440a9861edc3e0d87
+  languageName: node
+  linkType: hard
+
+"stylelint-config-prettier@npm:^9.0.3":
+  version: 9.0.3
+  resolution: "stylelint-config-prettier@npm:9.0.3"
+  peerDependencies:
+    stylelint: ">=11.0.0"
+  bin:
+    stylelint-config-prettier: bin/check.js
+    stylelint-config-prettier-check: bin/check.js
+  checksum: 9ff3f719daf3865878615ba52c31de6ef0a0d25d41cb58c41afe2f1c459a838997ff912cc4a5b4d401f92e2193667ff4d140b6d303cf8192e894b5cb454c41b9
   languageName: node
   linkType: hard
 

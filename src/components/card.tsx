@@ -1,4 +1,4 @@
-import type { ReactElement } from "react";
+import type { FunctionComponent } from "react";
 
 export type Props = {
   title: string;
@@ -6,7 +6,7 @@ export type Props = {
   href: string;
 };
 
-export const Card = (props: Props): ReactElement | null => {
+export const Card: FunctionComponent<Props> = props => {
   const { title, caption, href } = props;
   return (
     <a

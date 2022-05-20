@@ -1,8 +1,8 @@
-import type { ReactElement } from "react";
+import type { FunctionComponent } from "react";
 import type { AppProps } from "next/app";
 import "../css/base.css";
 
-const MyApp = ({ Component, pageProps }: AppProps): ReactElement | null => {
+const MyApp: FunctionComponent<AppProps> = ({ Component, pageProps }) => {
   return <Component {...pageProps} />;
 };
 

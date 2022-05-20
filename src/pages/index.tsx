@@ -1,10 +1,10 @@
-import type { ReactElement } from "react";
+import type { FunctionComponent } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import { Card } from "../components/card";
 import VercelSvg from "../../public/vercel.svg";
 
-const Home = (): ReactElement | null => {
+const Home: FunctionComponent = () => {
   return (
     <div className="min-h-screen px-2 flex flex-col justify-center items-center">
       <Head>

@@ -1,17 +1,17 @@
 {
   "name": "next-typescript-tailwind-starter",
   "description": "Starter Next.js project using TypeScript, Tailwind and some DevTools preconfigured.",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "NODE_ENV=production next build",
-    "start": "NODE_ENV=production next start",
-    "lint": "concurrently -s --kill-others-on-fail yarn:lint:*",
-    "lint:eslint": "eslint --ext .js,.ts,.tsx .",
+    "build": "next build",
+    "start": "next start",
+    "lint": "concurrently -s -n lint: 'yarn:lint:*'",
     "lint:ts": "tsc --noemit",
-    "lint:css": "stylelint **/*.css",
-    "analyze": "NODE_ENV=production ANALYZE=true next build"
+    "lint:eslint": "eslint --cache --ext .js,.ts,.tsx .",
+    "lint:css": "stylelint --cache **/*.css",
+    "analyze": "ANALYZE=true next build"
   },
   "dependencies": {
     "@next/bundle-analyzer": "12.1.6",

@@ -1,4 +1,8 @@
 node_modules
-.next
 out
+.next
 .yarn
+**/*.js
+**/*.jsx
+**/*.ts
+**/*.tsx

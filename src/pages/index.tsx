@@ -1,9 +1,10 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import { Card } from '../components/card';
-import VercelSvg from '../../public/vercel.svg';
+import type { ReactElement } from "react";
+import Head from "next/head";
+import Image from "next/image";
+import { Card } from "../components/card";
+import VercelSvg from "../../public/vercel.svg";
 
-const Home = (): React.ReactElement | null => {
+const Home = (): ReactElement | null => {
   return (
     <div className="min-h-screen px-2 flex flex-col justify-center items-center">
       <Head>
@@ -13,12 +14,14 @@ const Home = (): React.ReactElement | null => {
 
       <main className="py-20 flex flex-1 flex-col justify-center items-center">
         <h1 className="text-7xl text-center">
-          Welcome to <a href="https://nextjs.org" className="text-indigo-500 hover:underline focus:underline">Next.js!</a>
+          Welcome to{" "}
+          <a href="https://nextjs.org" className="text-indigo-500 hover:underline focus:underline">
+            Next.js!
+          </a>
         </h1>
 
         <p className="text-2xl leading-6 mt-4">
-          Get started by editing{' '}
-          <code className="bg-gray-100 rounded p-2 text-lg font-mono">pages/index.js</code>
+          Get started by editing <code className="bg-gray-100 rounded p-2 text-lg font-mono">pages/index.js</code>
         </p>
 
         <div className="grid max-w-4xl mt-12">

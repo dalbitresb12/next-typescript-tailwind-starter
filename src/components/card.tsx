@@ -1,10 +1,12 @@
-export type Props = {
-  title: string,
-  caption: string,
-  href: string,
-}
+import type { ReactElement } from "react";
 
-export const Card = (props: Props): React.ReactElement | null => {
+export type Props = {
+  title: string;
+  caption: string;
+  href: string;
+};
+
+export const Card = (props: Props): ReactElement | null => {
   const { title, caption, href } = props;
   return (
     <a

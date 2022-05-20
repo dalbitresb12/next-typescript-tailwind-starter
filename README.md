@@ -6,32 +6,26 @@ This starter includes some settings I use with all my Next.js projects, includin
 
 - TypeScript (**with strict mode enabled**)
 - Tailwind CSS with PostCSS and Autoprefixer
-- ESLint with my usual set of rules preconfigured, extending `eslint:recommended`, `plugin:react/recommended`, `plugin:@next/next/core-web-vitals` and `plugin:@typescript-eslint/recommended` (only in TypeScript files).
-- Stylelint with the standard configuration (`stylelint-config-standard`) and some custom rules to lint Tailwind CSS directives
+- ESLint with my usual set of rules preconfigured, extending `eslint:recommended`, `plugin:react/recommended`, `plugin:react/jsx-runtime`, `plugin:@typescript-eslint/recommended` (only in TypeScript files), `next/core-web-vitals` and `prettier` (to turn off rules that conflict or are unnecessary with Prettier)
+- Stylelint with the standard configuration (`stylelint-config-standard`), `stylelint-config-prettier` to turn off rules that conflict or are unnecessary with Prettier and some custom rules to lint Tailwind CSS directives
 - Environment variables for some settings in `next.config.js`
 - Project files stored in `src/` instead of the root folder
 - `.vscode/settings.json` for disabling VS Code built-in CSS validator and using the TypeScript SDK from `node_modules`
-
-## ESLint rules enabled
-
-- Indentation (`indent`): 2 spaces
-- Semicolons (`semi`)
-- Trailing new line (`eol-last`)
-- Require === and !== (`eqeqeq`)
-- `react/jsx-uses-react` and `react/react-in-jsx-scope`: `off` (because of the new JSX parser)
-- `react/prop-types` and `no-unused-vars`: `off` (only in TypeScript files)
+- Extension recommendations for VS Code: ESLint, Prettier, Stylelint and Tailwind CSS
 
 ## Getting Started
 
-First, create a new project with `create-next-app` using this starter:
+You can quickly initialize a new repository in GitHub using the "Use this template" button on the top of the page.
 
-```bash
+Alternatively, create a new project with `create-next-app` using this starter:
+
+```sh
 yarn create next-app -e https://github.com/dalbitresb12/next-typescript-tailwind-starter
 ```
 
 Then, run the development server:
 
-```bash
+```sh
 yarn dev
 ```
 

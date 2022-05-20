@@ -11,6 +11,9 @@
     "lint:ts": "tsc --noemit",
     "lint:eslint": "eslint --cache --ext .js,.ts,.tsx .",
     "lint:css": "stylelint --cache **/*.css",
+    "lint:fix": "concurrently -s -n lint:fix: 'yarn:lint:fix:*'",
+    "lint:eslint:fix": "eslint --cache --ext .js,.ts,.tsx --fix .",
+    "lint:css:fix": "stylelint --cache --fix **/*.css",
     "analyze": "ANALYZE=true next build"
   },
   "dependencies": {

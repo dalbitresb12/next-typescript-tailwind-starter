@@ -1,12 +1,10 @@
-import type { FunctionComponent } from "react";
-
 export type Props = {
   title: string;
   caption: string;
   href: string;
 };
 
-export const Card: FunctionComponent<Props> = props => {
+export const Card: React.FunctionComponent<Props> = props => {
   const { title, caption, href } = props;
   return (
     <a

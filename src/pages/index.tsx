@@ -1,10 +1,9 @@
-import type { FunctionComponent } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import { Card } from "../components/card";
 import VercelSvg from "../../public/vercel.svg";
 
-const Home: FunctionComponent = () => {
+const Home: React.FunctionComponent = () => {
   return (
     <div className="min-h-screen px-2 flex flex-col justify-center items-center">
       <Head>

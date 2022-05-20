@@ -33,5 +33,18 @@
     "no-lonely-if": "error",
     "no-multi-assign": "error",
     "no-multi-str": "error"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["**/*.ts", "**/*.tsx"],
+      "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:react/jsx-runtime",
+        "plugin:@typescript-eslint/recommended",
+        "next/core-web-vitals",
+        "prettier"
+      ]
+    }
+  ]
 }

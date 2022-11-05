@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - develop
   pull_request:
 
 jobs:
@@ -17,25 +18,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Setup Node v${{ matrix.node }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-      - name: Restore yarn cache
-        uses: actions/cache@v3
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --immutable
+        run: yarn install --frozen-lockfile --immutable
       - uses: reviewdog/action-eslint@v1
         with:
           reporter: 'github-check'
+          filter_mode: 'nofilter'
+          fail_on_error: true
           eslint_flags: '--ext .js,.jsx,.ts,.tsx .'
   stylelint:
     name: 'stylelint (node: ${{ matrix.node }})'
@@ -47,25 +40,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Setup Node v${{ matrix.node }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-      - name: Restore yarn cache
-        uses: actions/cache@v3
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --immutable
+        run: yarn install --frozen-lockfile --immutable
       - uses: reviewdog/action-stylelint@v1
         with:
           reporter: 'github-check'
+          filter_mode: 'nofilter'
+          fail_on_error: true
           stylelint_input: 'src/**/*.css src/**/*.vue'
   prettier:
     name: 'prettier (node: ${{ matrix.node }})'
@@ -77,25 +62,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Setup Node v${{ matrix.node }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-      - name: Restore yarn cache
-        uses: actions/cache@v3
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --immutable
+        run: yarn install --frozen-lockfile --immutable
       - uses: EPMatt/reviewdog-action-prettier@v1
         with:
           reporter: 'github-check'
+          filter_mode: 'nofilter'
+          fail_on_error: true
   tsc:
     name: 'tsc (node: ${{ matrix.node }})'
     runs-on: ubuntu-latest
@@ -106,25 +83,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Setup Node v${{ matrix.node }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-      - name: Restore yarn cache
-        uses: actions/cache@v3
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --immutable
+        run: yarn install --frozen-lockfile --immutable
       - uses: EPMatt/reviewdog-action-tsc@v1
         with:
           reporter: 'github-check'
+          filter_mode: 'nofilter'
+          fail_on_error: true
   actionlint:
     name: 'actionlint (node: ${{ matrix.node }})'
     runs-on: ubuntu-latest
@@ -137,3 +106,5 @@ jobs:
       - uses: reviewdog/action-actionlint@v1
         with:
           reporter: 'github-check'
+          filter_mode: 'nofilter'
+          fail_on_error: true

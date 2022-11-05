@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 import { Card } from "../components/card";
 import VercelSvg from "../../public/vercel.svg";
 
@@ -58,7 +57,7 @@ const Home: React.FunctionComponent = () => {
           rel="noopener noreferrer"
         >
           <span className="mr-2">Powered by</span>
-          <Image src={VercelSvg} alt="Vercel Logo" layout="fixed" width={71} height={16} unoptimized={true} />
+          <VercelSvg width={71} height={16} aria-label="Vercel logo" />
         </a>
       </footer>
     </div>

@@ -21,7 +21,7 @@ const getImageDomains = () => {
  * @returns {import("next/dist/shared/lib/image-config").ImageConfig}
  */
 const createImageConfig = () => {
-  const isCloudflare = process.env.IS_CLOUDFLARE === "true";
+  const isCloudflare = process.env.CF_PAGES === "1";
   // Cloudflare Pages doesn't support Image Optimization
   if (isCloudflare) {
     return { unoptimized: true };

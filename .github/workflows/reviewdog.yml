@@ -7,23 +7,23 @@ on:
       - develop
   pull_request:
 
+env:
+  NODE_VERSION: 18
+
 jobs:
   eslint:
-    name: 'eslint (node: ${{ matrix.node }})'
+    name: 'eslint (node: ${{ env.NODE_VERSION }})'
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [18]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Setup Node v${{ matrix.node }}
+      - name: Setup Node v${{ env.NODE_VERSION }}
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node }}
+          node-version: ${{ env.NODE_VERSION }}
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --frozen-lockfile --immutable
+        run: yarn install --immutable
       - uses: reviewdog/action-eslint@v1
         with:
           reporter: 'github-check'
@@ -31,21 +31,18 @@ jobs:
           fail_on_error: true
           eslint_flags: '--ext .js,.jsx,.ts,.tsx .'
   stylelint:
-    name: 'stylelint (node: ${{ matrix.node }})'
+    name: 'stylelint (node: ${{ env.NODE_VERSION }})'
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [18]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Setup Node v${{ matrix.node }}
+      - name: Setup Node v${{ env.NODE_VERSION }}
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node }}
+          node-version: ${{ env.NODE_VERSION }}
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --frozen-lockfile --immutable
+        run: yarn install --immutable
       - uses: reviewdog/action-stylelint@v1
         with:
           reporter: 'github-check'
@@ -53,53 +50,44 @@ jobs:
           fail_on_error: true
           stylelint_input: 'src/**/*.css src/**/*.vue'
   prettier:
-    name: 'prettier (node: ${{ matrix.node }})'
+    name: 'prettier (node: ${{ env.NODE_VERSION }})'
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [18]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Setup Node v${{ matrix.node }}
+      - name: Setup Node v${{ env.NODE_VERSION }}
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node }}
+          node-version: ${{ env.NODE_VERSION }}
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --frozen-lockfile --immutable
+        run: yarn install --immutable
       - uses: EPMatt/reviewdog-action-prettier@v1
         with:
           reporter: 'github-check'
           filter_mode: 'nofilter'
           fail_on_error: true
   tsc:
-    name: 'tsc (node: ${{ matrix.node }})'
+    name: 'tsc (node: ${{ env.NODE_VERSION }})'
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [18]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Setup Node v${{ matrix.node }}
+      - name: Setup Node v${{ env.NODE_VERSION }}
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node }}
+          node-version: ${{ env.NODE_VERSION }}
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --frozen-lockfile --immutable
+        run: yarn install --immutable
       - uses: EPMatt/reviewdog-action-tsc@v1
         with:
           reporter: 'github-check'
           filter_mode: 'nofilter'
           fail_on_error: true
   actionlint:
-    name: 'actionlint (node: ${{ matrix.node }})'
+    name: 'actionlint'
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [18]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2

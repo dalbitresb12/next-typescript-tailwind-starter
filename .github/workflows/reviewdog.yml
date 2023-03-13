@@ -8,7 +8,7 @@ on:
   pull_request:
 
 env:
-  NODE_VERSION: 18
+  NODE_VERSION: ${{ vars.NODE_VERSION || 18 }}
 
 jobs:
   eslint:

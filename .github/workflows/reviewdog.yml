@@ -14,6 +14,7 @@ jobs:
   eslint:
     name: 'eslint (node: ${{ env.NODE_VERSION }})'
     runs-on: ubuntu-latest
+    if: ${{ vars.USE_REVIEWDOG == 'true' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -33,6 +34,7 @@ jobs:
   stylelint:
     name: 'stylelint (node: ${{ env.NODE_VERSION }})'
     runs-on: ubuntu-latest
+    if: ${{ vars.USE_REVIEWDOG == 'true' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -52,6 +54,7 @@ jobs:
   prettier:
     name: 'prettier (node: ${{ env.NODE_VERSION }})'
     runs-on: ubuntu-latest
+    if: ${{ vars.USE_REVIEWDOG == 'true' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -70,6 +73,7 @@ jobs:
   tsc:
     name: 'tsc (node: ${{ env.NODE_VERSION }})'
     runs-on: ubuntu-latest
+    if: ${{ vars.USE_REVIEWDOG == 'true' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -88,6 +92,7 @@ jobs:
   actionlint:
     name: 'actionlint'
     runs-on: ubuntu-latest
+    if: ${{ vars.USE_REVIEWDOG == 'true' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2

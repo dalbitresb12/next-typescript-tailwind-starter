@@ -9,16 +9,16 @@ on:
 
 jobs:
   eslint:
-    name: "eslint (node: ${{ vars.NODE_VERSION || '18' }})"
+    name: eslint
     runs-on: ubuntu-latest
     if: ${{ vars.USE_REVIEWDOG == 'true' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Setup Node v${{ vars.NODE_VERSION || '18' }}
+      - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ vars.NODE_VERSION || '18' }}
+          node-version: 18
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install --immutable
@@ -29,16 +29,16 @@ jobs:
           fail_on_error: true
           eslint_flags: '--ext .js,.jsx,.ts,.tsx .'
   stylelint:
-    name: "stylelint (node: ${{ vars.NODE_VERSION || '18' }})"
+    name: stylelint
     runs-on: ubuntu-latest
     if: ${{ vars.USE_REVIEWDOG == 'true' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Setup Node v${{ vars.NODE_VERSION || '18' }}
+      - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ vars.NODE_VERSION || '18' }}
+          node-version: 18
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install --immutable
@@ -49,16 +49,16 @@ jobs:
           fail_on_error: true
           stylelint_input: 'src/**/*.css src/**/*.vue'
   prettier:
-    name: "prettier (node: ${{ vars.NODE_VERSION || '18' }})"
+    name: prettier
     runs-on: ubuntu-latest
     if: ${{ vars.USE_REVIEWDOG == 'true' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Setup Node v${{ vars.NODE_VERSION || '18' }}
+      - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ vars.NODE_VERSION || '18' }}
+          node-version: 18
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install --immutable
@@ -68,16 +68,16 @@ jobs:
           filter_mode: 'nofilter'
           fail_on_error: true
   tsc:
-    name: "tsc (node: ${{ vars.NODE_VERSION || '18' }})"
+    name: tsc
     runs-on: ubuntu-latest
     if: ${{ vars.USE_REVIEWDOG == 'true' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Setup Node v${{ vars.NODE_VERSION || '18' }}
+      - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ vars.NODE_VERSION || '18' }}
+          node-version: 18
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install --immutable

@@ -2,21 +2,18 @@ name: deploy
 
 on: [push, pull_request]
 
-env:
-  NODE_VERSION: ${{ vars.NODE_VERSION || 18 }}
-
 jobs:
   pages:
-    name: 'cloudflare pages (node: ${{ env.NODE_VERSION }})'
+    name: "cloudflare pages (node: ${{ vars.NODE_VERSION || '18' }})"
     runs-on: ubuntu-latest
     if: ${{ vars.USE_CLOUDFLARE_PAGES == 'true' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Setup Node v${{ env.NODE_VERSION }}
+      - name: Setup Node v${{ vars.NODE_VERSION || '18' }}
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version: ${{ vars.NODE_VERSION || '18' }}
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install --immutable

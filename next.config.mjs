@@ -1,38 +1,41 @@
-const withBundleAnalyzer = require("@next/bundle-analyzer")({
+import createBundleAnalyzer from "@next/bundle-analyzer";
+
+const withBundleAnalyzer = createBundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
 });
+
+const isCloudflare = process.env.CF_PAGES === "1";
 
 /**
  * Parse the environment variable for the custom domains for Next.js Image Optimization
  *
  * @returns {string[]}
  */
-const getImageDomains = () => {
+function parseImageDomains() {
   try {
     return JSON.parse(process.env.STATIC_CONTENT_DOMAIN);
-  } catch (err) {
+  } catch {
     return [];
   }
-};
+}
 
 /**
  * Create the configuration for Next.js Image Optimization
  *
  * @returns {import("next/dist/shared/lib/image-config").ImageConfig}
  */
-const createImageConfig = () => {
-  const isCloudflare = process.env.CF_PAGES === "1";
+function createImageConfig() {
   // Cloudflare Pages doesn't support Image Optimization
   if (isCloudflare) {
     return { unoptimized: true };
   }
 
   return {
-    domains: getImageDomains(),
+    domains: parseImageDomains(),
   };
-};
+}
 
-module.exports = withBundleAnalyzer({
+const config = withBundleAnalyzer({
   images: createImageConfig(),
   webpack: config => {
     config.module.rules.push({
@@ -45,3 +48,5 @@ module.exports = withBundleAnalyzer({
   },
   productionBrowserSourceMaps: process.env.PRODUCTION_SOURCE_MAPS === "true",
 });
+
+export default config;

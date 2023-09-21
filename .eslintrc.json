@@ -34,7 +34,8 @@
     "no-else-return": ["error", { "allowElseIf": true }],
     "no-lonely-if": "error",
     "no-multi-assign": "error",
-    "no-multi-str": "error"
+    "no-multi-str": "error",
+    "unicorn/prevent-abbreviations": "off"
   },
   "overrides": [
     {

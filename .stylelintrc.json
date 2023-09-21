@@ -2,7 +2,6 @@
   "extends": ["stylelint-config-standard"],
   "rules": {
     "declaration-no-important": true,
-    "declaration-block-trailing-semicolon": "always",
     "at-rule-no-unknown": [
       true,
       { "ignoreAtRules": ["tailwind", "apply", "variants", "responsive", "screen", "layer"] }
